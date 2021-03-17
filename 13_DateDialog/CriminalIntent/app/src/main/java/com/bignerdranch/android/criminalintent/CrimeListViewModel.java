@@ -7,8 +7,8 @@ import java.util.List;
 
 public class CrimeListViewModel extends ViewModel {
 
-    private CrimeRepository crimeRepository = CrimeRepository.get();
-    private LiveData<List<Crime>> crimeListLiveData = crimeRepository.getCrimes();
+    private final CrimeRepository crimeRepository = CrimeRepository.get();
+    private final LiveData<List<Crime>> crimeListLiveData = crimeRepository.getCrimes();
 
     public CrimeRepository getCrimeRepository() {
         return crimeRepository;

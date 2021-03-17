@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CrimeListFragment.Callbacks {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

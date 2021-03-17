@@ -24,11 +24,11 @@ public class CrimeListFragment extends Fragment {
     private static final String TAG = "CrimeListFragment";
 
     private RecyclerView crimeRecyclerView;
-    private CrimeAdapter adapter = new CrimeAdapter(new ArrayList<Crime>());
+    private final CrimeAdapter adapter = new CrimeAdapter(new ArrayList<Crime>());
 
     private final CrimeListViewModel crimeListViewModel = new CrimeListViewModel();
 
-    private Callbacks callback;
+    private Callbacks callbacks;
 
     interface Callbacks {
         void onCrimeSelected(UUID crimeId);
@@ -37,7 +37,7 @@ public class CrimeListFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        callback = (context instanceof Callbacks) ? (Callbacks) context : null;
+        callbacks = (context instanceof Callbacks) ? (Callbacks) context : null;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class CrimeListFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        callback = null;
+        callbacks = null;
     }
 
     private void updateUI(List<Crime> crimes) {

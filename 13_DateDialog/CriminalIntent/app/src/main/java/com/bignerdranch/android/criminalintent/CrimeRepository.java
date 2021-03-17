@@ -20,11 +20,9 @@ public class CrimeRepository {
 
     private static CrimeRepository instance;
 
-    private CrimeDatabase database;
+    private final CrimeDao crimeDao;
 
-    private CrimeDao crimeDao;
-
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     static void initialize(Context context) {
         if(instance == null) {
@@ -41,7 +39,7 @@ public class CrimeRepository {
     }
 
     private CrimeRepository(Context context) {
-        database = Room.databaseBuilder(
+        CrimeDatabase database = Room.databaseBuilder(
                 context.getApplicationContext(),
                 CrimeDatabase.class,
                 DATABASE_NAME

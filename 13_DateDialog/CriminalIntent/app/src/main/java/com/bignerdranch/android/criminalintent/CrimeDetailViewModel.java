@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public class CrimeDetailViewModel extends ViewModel {
 
-    private CrimeRepository crimeRepository = CrimeRepository.get();
-    private MutableLiveData<UUID> crimeIdLiveData = new MutableLiveData<>();
+    private final CrimeRepository crimeRepository = CrimeRepository.get();
+    private final MutableLiveData<UUID> crimeIdLiveData = new MutableLiveData<>();
 
-    private LiveData<Crime> crimeLiveData  =
+    private final LiveData<Crime> crimeLiveData  =
         Transformations.switchMap(crimeIdLiveData, new Function<UUID, LiveData<Crime>>() {
             @Override
             public LiveData<Crime> apply(UUID crimeId) {

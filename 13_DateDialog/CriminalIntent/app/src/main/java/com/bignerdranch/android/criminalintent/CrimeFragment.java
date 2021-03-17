@@ -27,7 +27,7 @@ public class CrimeFragment extends Fragment implements DatePickerFragment.Callba
     private EditText titleField;
     private Button dateButton;
     private CheckBox solvedCheckBox;
-    private CrimeDetailViewModel crimeDetailViewModel = new CrimeDetailViewModel();
+    private final CrimeDetailViewModel crimeDetailViewModel = new CrimeDetailViewModel();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
