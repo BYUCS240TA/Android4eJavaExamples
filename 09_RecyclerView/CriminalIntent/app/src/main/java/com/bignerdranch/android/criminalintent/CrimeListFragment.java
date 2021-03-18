@@ -19,6 +19,7 @@ public class CrimeListFragment extends Fragment {
     private static final String TAG = "CrimeListFragment";
 
     private RecyclerView crimeRecyclerView;
+    private CrimeAdapter adapter;
 
     private final CrimeListViewModel crimeListViewModel = new CrimeListViewModel();
 
@@ -43,7 +44,7 @@ public class CrimeListFragment extends Fragment {
 
     private void updateUI() {
         List<Crime> crimes = crimeListViewModel.getCrimes();
-        CrimeAdapter adapter = new CrimeAdapter(crimes);
+        adapter = new CrimeAdapter(crimes);
         crimeRecyclerView.setAdapter(adapter);
     }
 
