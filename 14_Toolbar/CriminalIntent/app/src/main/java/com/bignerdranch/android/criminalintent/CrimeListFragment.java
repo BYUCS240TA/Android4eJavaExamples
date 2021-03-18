@@ -126,8 +126,7 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getContext(), crime.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            callbacks.onCrimeSelected(crime.getId());
         }
     }
 
