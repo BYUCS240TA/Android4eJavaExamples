@@ -112,10 +112,12 @@ public class CrimeFragment extends Fragment implements DatePickerFragment.Callba
     }
 
     private void updateUI() {
-        titleField.setText(crime.getTitle());
-        dateButton.setText(crime.getDate().toString());
-        solvedCheckBox.setChecked(crime.isSolved());
-        solvedCheckBox.jumpDrawablesToCurrentState();
+        if (crime != null) {
+            titleField.setText(crime.getTitle());
+            dateButton.setText(crime.getDate().toString());
+            solvedCheckBox.setChecked(crime.isSolved());
+            solvedCheckBox.jumpDrawablesToCurrentState();
+        }
     }
 
     static CrimeFragment newInstance(UUID crimeId) {
