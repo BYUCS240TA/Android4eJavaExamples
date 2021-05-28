@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,7 @@ public class CrimeListFragment extends Fragment {
     private RecyclerView crimeRecyclerView;
     private final CrimeAdapter adapter = new CrimeAdapter(new ArrayList<Crime>());
 
-    private final CrimeListViewModel crimeListViewModel = new CrimeListViewModel();
+    private CrimeListViewModel crimeListViewModel;
 
     private Callbacks callbacks;
 
@@ -47,6 +48,7 @@ public class CrimeListFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        crimeListViewModel = ViewModelProviders.of(this).get(CrimeListViewModel.class);
         setHasOptionsMenu(true);
     }
 
