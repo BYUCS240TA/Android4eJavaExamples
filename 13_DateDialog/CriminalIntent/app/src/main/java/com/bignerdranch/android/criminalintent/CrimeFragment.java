@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import java.util.Date;
 import java.util.UUID;
@@ -27,11 +28,12 @@ public class CrimeFragment extends Fragment implements DatePickerFragment.Callba
     private EditText titleField;
     private Button dateButton;
     private CheckBox solvedCheckBox;
-    private final CrimeDetailViewModel crimeDetailViewModel = new CrimeDetailViewModel();
+    private CrimeDetailViewModel crimeDetailViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        crimeDetailViewModel = ViewModelProviders.of(this).get(CrimeDetailViewModel.class);
         crime = new Crime();
         UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
         crimeDetailViewModel.loadCrime(crimeId);
