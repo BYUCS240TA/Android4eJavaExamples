@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,11 +22,14 @@ public class CrimeListFragment extends Fragment {
 
     private RecyclerView crimeRecyclerView;
 
-    private final CrimeListViewModel crimeListViewModel = new CrimeListViewModel();
+    private CrimeListViewModel crimeListViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        crimeListViewModel = ViewModelProviders.of(this).get(CrimeListViewModel.class);
+
         Log.d(TAG, "Total crimes: " + crimeListViewModel.getCrimes().size());
     }
 
